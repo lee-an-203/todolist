@@ -16,7 +16,6 @@ function TodoList() {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-
   const randomIntFromInterval = (min, max) =>{
     return Math.floor(Math.random() * (max - min + 1) + min )
   }
@@ -52,7 +51,6 @@ function TodoList() {
     <div className='list'>
       <div className='hear'>
         <input  value={todo} class='icon' type='text' placeholder='Search note...' onChange={(event) => setTodo(event.target.value)} />
-
         <select className='chon' style={{height: '30px'}}>
           <option value="0">ALL</option>
           <option value="1">All</option>
@@ -66,21 +64,25 @@ function TodoList() {
 
       </div>
       
-      <button className='them' type='submit' onClick={() =>handleClickBtn()}>submit</button> 
+      <button className='them' type='submit' onClick={() =>handleClickBtn()}>+</button> 
 
       {listTodo.map((item, index)=>(
-        <div key={item.id}>
-          <div className={`out ${item.completed ? 'completed' : ''}`} id={item.id}>{item.name}</div>
+      <div key={item.id} className="todo-item">
+        <div style={{ display: "flex", alignItems: "center" }}>
           <input 
             type="checkbox"
             checked={item.completed}
             onChange={() => handleComplete(item.id)}
             className="checkbox"
           />
-          <button className="edit-btn" onClick={() => handleEdit(item.id, item.name)}>Edit</button>
-          <button type='delete' onClick={() => handleDelete(item.id)}>Delete</button>
+          <div className={`out ${item.completed ? 'completed' : ''}`} id={item.id}>{item.name}</div>
         </div>
-      ))}
+        <div>
+          <button className="edit-btn" onClick={() => handleEdit(item.id, item.name)}>✏️</button>
+          <button type='delete' onClick={() => handleDelete(item.id)}>🗑️</button>
+        </div>
+      </div>
+    ))}
     </div>
   )
 }
