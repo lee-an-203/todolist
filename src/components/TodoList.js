@@ -79,7 +79,7 @@ function TodoList() {
           value={todo}
           className="icon"
           type="text"
-          placeholder="New friends..."
+          placeholder="Search note..."
           onChange={(event) => setTodo(event.target.value)}
         />
         <select className="chon" style={{ height: "30px" }}>

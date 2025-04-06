@@ -13,6 +13,17 @@ body {
 
   }
 
+.search-input{
+    margin-right: 20px;
+    padding-right: 25px;
+    width: 90px;
+    height: 27px;
+    background-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #6c63ff;
+
+}
+
  .them {
     position: fixed;
     bottom: 20px;
